@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>Encriptador - Desencriptador</title>
+        <meta lang = "es">
+		<link rel="stylesheet" href="resetstyle.css">
+        <link rel="stylesheet" href="styledesafio.css">
+        <script type="text/javascript">
+
+            function encriptar() {
+
+                var mensaje = document.getElementById("mensaje").value;
+                var resultado = "";
+
+                for (var i = 0; i < mensaje.length; i++) {
+                     var letra = mensaje.charAt(i);
+
+                    switch (letra) {
+                        case 'a':
+                            resultado += 'ai';
+                            break;
+                        case 'e':
+                            resultado += 'enter';
+                            break;
+                        case 'i':
+                            resultado += 'imes';
+                            break;
+                        case 'o':
+                            resultado += 'ober';
+                            break;
+                        case 'u':
+                            resultado += 'ufat';
+                            break;
+                        default:
+                            resultado += letra;
+                    }
+                }
+                    document.getElementById("resultado").innerHTML = resultado;
+            }
+    
+            function desencriptar() {
+
+                var mensaje = document.getElementById("mensaje").value;
+                var resultado = mensaje.replace(/ai/g, "a")
+                                .replace(/enter/g, "e")
+                                .replace(/imes/g, "i")
+                                .replace(/ober/g, "o")
+                                .replace(/ufat/g, "u");
+
+                document.getElementById("resultado").innerHTML = resultado;
+            }
+    
+            function copiarResultado() {
+
+                var texto = document.getElementById("resultado").innerHTML;
+                navigator.clipboard.writeText(texto);
+            }
+            
+        </script>
+    </head>
+
+    <body>
+
+        <!--Codigo Logo-->
+
+		    <header>
+
+			    <div class="logo">
+
+				    <h1><img src="Fondo.png"></h1>
+
+			    </div>
+
+		    </header>
+
+		<!--Codigo Textos-->
+
+        <main class="gradiante">
+
+            <section class="bloque-mensaje">
+
+                <textarea type="texto" id="mensaje" class="mensaje-texto" placeholder= "INGRESE UN TEXTO....."></textarea>
+
+                    <div class="botones">
+
+                        <button onclick="encriptar()" class="boton-encriptador">ENCRIPTAR</button>
+                        <button onclick="desencriptar()" class="boton-desencriptador" >DESENCRIPTAR</button>
+
+                    </div>
+
+            </section>
+
+            <section class="bloque-resultado"> 
+
+                <p class="resultado-texto">RESULTADO: <span id="resultado"></span></p>
+                <button onclick="copiarResultado()" class="resultado-boton" >COPIAR</button>
+
+            </section>
+
+        </main>
+
+        <!--Pie de pagina (Datos)-->
+
+			<footer class="fondo">
+
+				<p class="datos">ALUMNO: MOYANO DERLIZ RUBEN</p>
+
+			</footer>
+        
+</body>
+
+</html>
